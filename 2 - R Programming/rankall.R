@@ -5,7 +5,7 @@ rankall <- function(outcome, num = 'best') {
     
     index <- ifelse(outcome == "heart attack", 11, ifelse(outcome == "heart failure", 17, 23))
     data <- read.csv("outcome-of-care-measures.csv", colClasses="character")
-    data[,index] <- suppressWarnings(as.numeric(data[,index]))
+    data[ ,index] <- suppressWarnings(as.numeric(data[,index]))
     data <- na.omit(data);
     
     data.sorted <- data[order(data[ ,index], data[ ,2], na.last=TRUE),]

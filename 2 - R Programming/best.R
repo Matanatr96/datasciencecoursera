@@ -11,11 +11,11 @@ best <- function(state, outcome) {
     }
     
     index <- ifelse(outcome == "heart attack", 11, ifelse(outcome == "heart failure", 17, 23))
-    data[,index] <- suppressWarnings(as.numeric(data[,index]))
+    data[ ,index] <- suppressWarnings(as.numeric(data[ ,index]))
     data <- na.omit(data)
     
     subset <- data[data$State == state, ]
-    subset <- subset[order(subset[,index], na.last=TRUE), 2]
+    subset <- subset[order(subset[ ,index], na.last=TRUE), 2]
     subset <- na.omit(subset)
     
     subset[1]
